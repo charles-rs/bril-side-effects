@@ -1,9 +1,9 @@
 # brillisp
-### _Your Name <your.name@example.com>_
+### Charles Sherk <cs897@cornell.edu>_
 
-This is a project to do ... something.
+Determine whether BRIL functions have side effects or not
 
 ## License
 
-Specify license here
+MIT
 
