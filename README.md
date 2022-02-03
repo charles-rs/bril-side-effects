@@ -1,4 +1,4 @@
-# brillisp
+# Side Effect Checker
 ### Charles Sherk <cs897@cornell.edu>
 
 Determine whether BRIL functions have side effects or not
