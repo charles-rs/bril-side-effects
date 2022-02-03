@@ -1,0 +1,1 @@
+((main . T) (is_single_digit) (peel_last_digit))

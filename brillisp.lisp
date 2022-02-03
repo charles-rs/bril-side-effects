@@ -22,7 +22,6 @@
   (cdr (assoc item list)))
 
 (defun contains-ptr (type-list)
-  (print type-list)
   (reduce (lambda (acc type) (or acc (and (typep type 'cons) (eql :ptr (caar type)))))
 	  type-list :initial-value nil))
 
@@ -41,13 +40,17 @@
     (cons name result)))
 
 (defun instr-has-side (instr)
-  (alexandria:switch ((cdr (assoc :op instr)) :test (lambda (v lst) (member v lst :test 'equalp)))
-    ('("ret" "add" "sub" "mul" "div" "const") nil)
-    ('("eq" "lt" "gt" "le" "ge") nil)
-    ('("call") (let ((func (cdr (assoc :funcs instr))))
-		 (if (gethash func *these-are-pure*)
-		     nil
-		     t)))
-    ('("print") t)
-    ('("alloc" "free" "store" "load") nil)
-    (t (error (format nil "invalid bril: ~a" (cdr (assoc :op instr)))))))
+  (if (assoc :label instr)
+      nil
+      (alexandria:switch ((cdr (assoc :op instr)) :test (lambda (v lst) (member v lst :test 'equalp)))
+	('("ret" "add" "sub" "mul" "div" "const" "id") nil)
+	('("fadd" "fsub" "fmul" "fdiv" "feq" "flt" "fgt" "fle" "fge") nil)
+	('("eq" "lt" "gt" "le" "ge" "not" "and" "or") nil)
+	('("br" "ret" "jmp" "nop") nil)
+	('("call") (let ((func (cdr (assoc :funcs instr))))
+		     (if (gethash func *these-are-pure*)
+			 nil
+			 t)))
+	('("print") t)
+	('("alloc" "free" "store" "load" "ptradd") nil)
+	(t (error (format nil "invalid bril: ~a" (cdr (assoc :op instr))))))))
