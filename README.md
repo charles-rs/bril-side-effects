@@ -17,6 +17,10 @@ The current logic is
  - if your type signature has any pointers in it, then something might be able
    to escape. This could be greatly improved with a pointer analysis
 
+## How to run
+You need SBCL and Quicklisp.
+Then just run make and it should work.
+
 ## License
 
 MIT
