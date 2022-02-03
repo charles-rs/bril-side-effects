@@ -1,5 +1,5 @@
 # brillisp
-### Charles Sherk <cs897@cornell.edu>_
+### Charles Sherk <cs897@cornell.edu>
 
 Determine whether BRIL functions have side effects or not
 This is not a very good analysis. It is so conservative it may start banning
