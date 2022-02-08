@@ -1,0 +1,9 @@
+@main(a :int)
+{
+  b :int = id a;
+  c :int = id b;
+  d :int = id c;
+.lbl:
+  print a;
+  ret;
+}
