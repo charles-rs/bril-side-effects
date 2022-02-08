@@ -1,7 +1,7 @@
 LISP ?= sbcl
 
 build:
-	$(LISP) --load lvntdce.asd \
-		--eval '(ql:quickload :lvntdce)' \
-			--eval '(asdf:make :lvntdce)' \
+	$(LISP) --load brillisp.asd \
+		--eval '(ql:quickload :brillisp)' \
+			--eval '(asdf:make :brillisp)' \
 			--eval '(quit)'

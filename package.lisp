@@ -1,5 +1,5 @@
 ;;;; package.lisp
 
-(defpackage #:lvntdce
+(defpackage #:brillisp
   (:use #:cl)
   (:export :main))

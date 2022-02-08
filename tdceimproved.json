@@ -1,1 +1,0 @@
-{"functions":[{"args":[{"name":"a","type":"int"}],"instrs":[{"args":["a"],"op":"print"},{"op":"ret"}],"name":"main"}]}
